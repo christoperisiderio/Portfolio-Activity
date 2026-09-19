@@ -1,10 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&display=swap');
 
+/* Helvetica Font */
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-Thin.otf") format("opentype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-Multitalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-Roman.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-MediumExtObl.otf") format("opentype");
+    font-weight: 500;
+    font-style: oblique;
+    font-display: swap;
+}
+
+h1 {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+}
+
+a {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    scroll-behavior: smooth;
 }
+
 
 :root {
     --primary-color: #3B3B3B;
@@ -15,8 +78,6 @@
 }
 
 .navbar {
-    background-color: var(--primary-color);
-    width: 100vw;
     padding: 20px;
 }
 
@@ -31,27 +92,40 @@
 
 .navbar ul li a {
     display: block;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
     text-decoration: none;
     color: var(--text-color-light);
     font-weight: 400;
+    border: 1px solid white;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.navbar ul li a:hover {
+    background-color: rgb(247, 186, 108);
+    color: #3B3B3B;
 }
 
 .bg-image{
     position: absolute;
     aspect-ratio: 1;
-    width: 400px;
-    right: 8%;
-    opacity: 0.1;
+    width: 800px;
+    left: 0%;
+    bottom: 1%;
+    opacity: 0.05;
+    max-width: 100%;
+    -webkit-mask-image: linear-gradient(170deg, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(100deg, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 
 .header {
     position: relative;
     background-color: var(--primary-color);
-    width: 100vw;
-    height: 95vh;
+    height: 100vh;
     padding: 1px;
     box-sizing: border-box;
+    background-image: url(images/BG.png);
+    background-size: cover;
 }
 
 .header .profile {
@@ -77,7 +151,7 @@
     display: inline-block;
     vertical-align: middle;
     padding: 20px;
-    width: 70%;
+    width: 45%;
 }
 
 .info h1 {
@@ -90,38 +164,141 @@
 }
 
 .info p {
-    font-size: .8rem;
+    font-size: 1rem;
     text-align: justify;
     font-weight: 200;
     color: var(--text-color-light);
 }
 
-.info .tags-and-cta {
+.tags-and-cta {
     width: 100%;
     display: inline-block;
 }
 
 .tags-and-cta .tagline {
+    margin: 0 0 0 200px;
     display: inline-block;
     border: 1px solid var(--text-color-light);
     width: fit-content;
     padding: 10px 20px;
     border-radius: 0px 25px 0 25px;
+    color: white;
 }
 
 .tags-and-cta .cta {
+    position: relative;
     display: inline-block;
-
 }
 
-.tags-and-cta .cta button {
-    font-family: "JetBrains Mono", monospace;
-    width: 150px;
-    padding: 10px;
+.tags-and-cta .cta .button {
+    margin-left: 10px;
+    padding: 10px 25px 10px 25px;
     background-color: var(--secondary-color);
     color: var(--text-color-dark);
     font-weight: 400;
+    color: #FD7405;
     border: none;
     border-radius: 0px 25px 0 25px;
     cursor: pointer;
+}
+
+.tags-and-cta .cta .button:hover {
+    background-color: transparent;
+    border: 1px solid var(--text-color-light);
+    color: white;
+}
+
+
+/* About Me */
+
+.about-me {
+
+    overflow-y: scroll;
+    position: relative;
+    height: 100dvh;
+    background-image: url(images/BG-2.png);
+    padding: 1px;
+    box-sizing: border-box;
+    background-size: cover;
+}
+
+.about-me .title {
+    margin: 100px auto 0;
+    width: 80%;
+    padding: 20px;
+}
+
+.about-me .title h1{
+    color: white;
+    font-weight: 900;
+    font-size: 7rem;
+}
+
+/* Personal Info */
+
+.about-me .personal-info {
+    margin: 0 auto 0;
+    width: 80%;
+    padding: 20px;
+}
+
+.personal-info .short-bio h1{
+    font-weight: 900;
+    color: white;
+}
+
+.personal-info .short-bio p{
+    color: white;
+    font-style: italic;
+}
+
+.personal-info .short-bio > p:not(:first-child) {
+  margin-top: .5rem;
+}
+
+.personal-info .hobbies h1{
+    font-weight: 900;
+    margin-top: 50px;
+    color: white;
+}
+
+.personal-info .hobbies p{
+    color: white;
+    font-style: italic;
+}
+
+.personal-info .hobbies span {
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.personal-info .hobbies > p:not(:first-child) {
+  margin-top: .5rem;
+}
+
+.personal-info .background h1{
+    font-weight: 900;
+    margin-top: 50px;
+    color: white;
+}
+
+.personal-info .background p{
+    color: white;
+}
+
+.personal-info .background span {
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.personal-info .background > p:not(:first-child) {
+  margin-top: .5rem;
+}
+
+/* Skills */
+
+.skills {
+    background-image: url(images/BG-3.png);
+    background-size: auto;
+    height: 100dvh;
 }
