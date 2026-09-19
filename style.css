@@ -298,7 +298,99 @@ a {
 /* Skills */
 
 .skills {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
     background-image: url(images/BG-3.png);
     background-size: auto;
     height: 100dvh;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+.skills .title {
+    margin: 100px auto 0;
+    width: 80%;
+    padding: 20px;
+    color: white;
+    font-size: 6rem;
+    line-height: 0.8;
+}
+
+.skills .cards {
+    margin: 100px auto 0;
+    width: 80%;
+    padding: 20px;
+    
+}
+
+.cards .card {
+    border-bottom: 3px solid #FFFFFF;
+    border-top: 3px solid #FD7405;
+    position: relative;
+    display: inline-block;
+    border-radius: 35px 0 35px 0;
+    width: 200px;
+    height: 250px;
+    margin-bottom: 25px;
+}
+
+/* Background image */
+.cards .card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url(images/Logo\ White.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    );
+}
+
+.card.graphic-artists::before {
+    background-image: url(images/Graphic-artists-icon.png);
+}
+
+.card.motion-graphics::before {
+    background-image: url(images/animation-motion-icon.png);
+}
+
+.card.video-editing::before {
+    background-image: url(images/video-editing-icon.png);
+}
+
+.card.website-developing::before {
+    background-image: url(images/Web-development.png);
+}
+
+.card.programming::before {
+    background-image: url(images/programming-icon.png);
+}
+
+.card.marketing::before {
+    background-image: url(images/marketing-icon.png);
+}
+
+.card p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    color: white;
+    z-index: 1;
+}
+
+.card:not(:first-child) {
+    margin-left: 50px;
 }
